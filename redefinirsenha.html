@@ -3,133 +3,289 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redefinição de Senha</title>
+  <title>Livros Infantis</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat+Alternates:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="books.css">
   <style>
-    body {
-      background-color: #b2d1ee;
-      color: #000;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
+    .book-carousel li {
+      width: 100%; /* Ajuste o comprimento da caixa conforme necessário */
+      height: auto;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      text-align: center;
     }
 
+    .book-carousel .buy-button {
+      display: inline-block;
+      margin: 10px auto;
+      padding: 8px 15px;
+      border-radius: 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .book-carousel .buy-button:hover {
+      background-color: #45a049;
+    }
+
+    .book-carousel .read-button {
+      display: inline-block;
+      margin: 10px auto;
+      padding: 8px 15px;
+      border-radius: 20px;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      border: none;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .book-carousel .read-button:hover {
+      background-color: #ddd;
+    }
+
+    .book-carousel li h2 {
+      font-size: 18px;
+      color: black;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-weight: normal;
+    }
+
+    .book-carousel li span {
+      margin-bottom: 5px;
+    }
+
+    .book-carousel li p {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    .book-carousel li img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .book-carousel li img:hover {
+      transform: scale(1.1);
+    }
+
+    .logo-container {
+      margin: 0;
+      text-align: center;
+    }
+    
     h1 {
-      margin-top: 0;
-      font-size: 28px;
+      font-family: 'Indie Flower', cursive;
+    }
+    
+    h2.prateleira-title {
+      font-family: 'Montserrat Alternates', sans-serif;
+    }
+    
+    .prateleira-1 {
       font-family: 'Indie Flower', cursive;
     }
 
-    .form {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .form input[type="email"] {
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      background-color: #fff;
-      width: 150px;
-    }
-
-    .form .button-container {
-      display: flex;
-      align-items: center;
-      margin-top: 10px;
-      gap: 10px;
-      margin: 0;
-    }
-
-    .form .button-container button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px; /* Formato arredondado */
-      background-color: #000; /* Cor preta */
-      color: #fff; /* Cor do texto */
-      cursor: pointer;
-    }
-
     .return-button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px; /* Formato arredondado */
-      background-color: #fff; /* Cor branca */
-      color: #000; /* Cor do texto */
+      display: inline-block;
+      margin: 20px auto;
+      padding: 8px 15px;
+      border-radius: 20px;
+      background-color: #fff;
+      color: #000;
       text-decoration: none;
-      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s ease-in-out;
     }
 
     .return-button:hover {
       background-color: #ddd;
     }
 
-    .logo-container {
-      text-align: center;
-      margin-bottom: 20px;
+    /* Estilos para a barra de navegação */
+    nav {
+      background-color: #13294B;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
     }
 
-    .logo {
-      width: 150px;
-      height: 150px;
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    /* Estilos responsivos para dispositivos móveis */
+    @media (max-width: 600px) {
+      .book-carousel li {
+        width: 114.67px;
+        height: 308.67px;
+      }
+
+      .book-carousel li h2 {
+        font-size: 16px;
+      }
+
+      .book-carousel li span,
+      .book-carousel li p {
+        font-size: 14px;
+      }
+
+      .book-carousel .buy-button,
+      .book-carousel .read-button,
+      .return-button {
+        padding: 6px 12px;
+      }
+    }
+
+    ul.book-carousel {
+      padding: 0;
     }
   </style>
 </head>
-<body>
-  <div class="container">
-    <div class="logo-container">
-      <img src="dados.png" alt="Logo" class="logo">
+<body style="background-color: #b2d1ee; color: #000;">
+  <nav>
+    <ul>
+      <li><a href="#">Início</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Atendimento</a></li>
+    </ul>
+  </nav>
+
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <div class="container" style="width: 100%; padding: 20px;">
+      <div class="logo-container" style="margin: 0;">
+        <img src="dados.png" alt="Logo" style="width: 150px;">
+      </div>
+      <h1 style="color: #000; text-align: center; margin-top: 0;">Biblioteca da Imaginação 🧸</h1>
+      <h2 class="prateleira-title" style="text-align: center; font-size: 24px; color: black; margin-bottom: 20px;">Prateleira 1</h2>
+      <ul class="book-carousel">
+        <li>
+          <img src="383909bd-da7c-41ff-b67c-bc2ffa7a2db5.png" alt="Book 1">
+          <h2>ID:1</h2>
+          <span>Livro - Alice no País das Maravilhas</span>
+          <p>R$ 45,00</p>
+          <div>
+            <a class="read-button" href="#" target="_blank">Ler</a>
+            <a class="buy-button" href="https://www.amazon.com.br/Alice-no-pa%C3%ADs-das-maravilhas/dp/8538083724/ref=asc_df_8538083724/?tag=googleshopp00-20&linkCode=df0&hvadid=379699540309&hvpos=&hvnetw=g&hvrand=7083792847792574597&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1001767&hvtargid=pla-897517480252&psc=1" target="_blank">Comprar</a>
+          </div>
+        </li>
+        <li>
+          <img src="bela dormecida.jpeg" alt="Book 2">
+          <h2>ID:2</h2>
+          <span>Livro - A Bela Adormecida</span>
+          <p>R$ 50,00</p>
+          <div>
+            <a class="read-button" href="#" target="_blank">Ler</a>
+            <a class="buy-button" href="https://www.amazon.com.br/Bela-adormecida-contos-fadas-pop-up/dp/1474949266/ref=asc_df_1474949266/?tag=googleshopp00-20&linkCode=df0&hvadid=379712525652&hvpos=&hvnetw=g&hvrand=5050163313918556062&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1001767&hvtargid=pla-933658959815&psc=1" target="_blank">Comprar</a>
+          </div>
+        </li>
+        <li>
+          <img src="Chapeuzinho.jpeg" alt="Book 3">
+          <h2>ID:3</h2>
+          <span>Livro - Chapeuzinho</span>
+          <p>R$ 55,00</p>
+          <div>
+            <a class="read-button" href="#" target="_blank">Ler</a>
+            <a class="buy-button" href="https://www.amazon.com.br/Chapeuzinho-vermelho-Susie-Brooks/dp/8538091883/ref=sr_1_1?keywords=chapeuzinho+vermelho&qid=1689290209&s=books&sprefix=chape%2Cstripbooks%2C264&sr=1-1" target="_blank">Comprar</a>
+          </div>
+        </li>
+      </ul>
+      <h2 class="prateleira-title" style="text-align: center; font-size: 24px; color: black; margin-top: 40px; margin-bottom: 20px;">Prateleira 2</h2>
+      <ul class="book-carousel">
+        <li>
+          <img src="A cinderela.jpeg" alt="Book 4">
+          <h2>ID:4</h2>
+          <span>Livro - A Cinderela no Castelo</span>
+          <p>R$ 60,00</p>
+          <div>
+            <a class="read-button" href="#" target="_blank">Ler</a>
+            <a class="buy-button" href="https://www.amazon.com.br/Cinderela-Ciranda-Cultural/dp/8538080970/ref=sr_1_3?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1ES7D6UBDUFM6&keywords=a+cinderela&qid=1689290235&s=books&sprefix=a+cinderela%2Cstripbooks%2C221&sr=1-3" target="_blank">Comprar</a>
+          </div>
+        </li>
+        <li>
+          <img src="Magico de oz.jpeg" alt="Book 5">
+          <h2>ID:5</h2>
+          <span>Livro - O Mágico de Oz</span>
+          <p>R$ 65,00</p>
+          <div>
+            <a class="read-button" href="#" target="_blank">Ler</a>
+            <a class="buy-button" href="https://www.amazon.com.br/M%C3%A1gico-Oz-L-Frank-Baum/dp/655598032X/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1917NY2S2IF32&keywords=o+magico+de+oz&qid=1689290267&s=books&sprefix=o+magico+de+oz%2Cstripbooks%2C218&sr=1-1" target="_blank">Comprar</a>
+          </div>
+        </li>
+        <li>
+          <img src="o menino.jpeg" alt="Book 6">
+          <h2>ID:6</h2>
+          <span>Livro - O Menino e o Mundo</span>
+          <p>R$ 70,00</p>
+          <div>
+            <a class="read-button" href="#" target="_blank">Ler</a>
+            <a class="buy-button" href="https://www.amazon.com.br/menino-mundo-Parte-1/dp/8573406992/ref=sr_1_2?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3PZXB4LEEIWI2&keywords=O+menino+e+o+mundo&qid=1689290295&s=books&sprefix=o+menino+e+o+mund%2Cstripbooks%2C213&sr=1-2" target="_blank">Comprar</a>
+          </div>
+        </li>
+      </ul>
+      <h2 class="prateleira-title" style="text-align: center; font-size: 24px; color: black; margin-top: 40px; margin-bottom: 20px;">Prateleira 3</h2>
+      <ul class="book-carousel">
+        <li>
+          <img src="3 porquinhos.jpeg" alt="Book 7">
+          <h2>ID:7</h2>
+          <span>Livro - Os Três Porquinhos</span>
+          <p>R$ 75,00</p>
+          <div>
+            <a class="read-button" href="#" target="_blank">Ler</a>
+            <a class="buy-button" href="https://www.amazon.com.br/Cole%C3%A7%C3%A3o-Os-Melhores-Contos-Porquinhos/dp/6555475684/ref=sr_1_1_sspa?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2GU1RWJVL8V5B&keywords=os+tres+porquinhos&qid=1689290332&s=books&sprefix=os+tres+porquinh%2Cstripbooks%2C211&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" target="_blank">Comprar</a>
+          </div>
+        </li>
+        <li>
+          <img src="jaoo e o pe.jpeg" alt="Book 8">
+          <h2>ID:8</h2>
+          <span>Livro - João e o Pé de Feijão</span>
+          <p>R$ 80,00</p>
+          <div>
+            <a class="read-button" href="#" target="_blank">Ler</a>
+            <a class="buy-button" href="https://www.amazon.com.br/Jo%C3%A3o-P%C3%A9-Feij%C3%A3o-Classicos/dp/6599868959/ref=sr_1_2?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=JD36N6NVY38S&keywords=joao+e+o+pe+de+feijao&qid=1689290363&s=books&sprefix=joao+e+o+pe+de+feij%2Cstripbooks%2C208&sr=1-2" target="_blank">Comprar</a>
+          </div>
+        </li>
+        <li>
+          <img src="cisne filhote.jpeg" alt="Book 9">
+          <h2>ID:9</h2>
+          <span>Livro - O Patinho Feio</span>
+          <p>R$ 85,00</p>
+          <div>
+            <a class="read-button" href="#" target="_blank">Ler</a>
+            <a class="buy-button" href="https://www.amazon.com.br/Cole%C3%A7%C3%A3o-Contos-Fant%C3%A1sticos-Patinho-Feio/dp/6555475692/ref=sr_1_1_sspa?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1FKIVG9HY6UFE&keywords=o+patinho+feio&qid=1689290403&s=books&sprefix=o+patinho+fei%2Cstripbooks%2C209&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" target="_blank">Comprar</a>
+          </div>
+        </li>
+      </ul>
+      <div style="text-align: center; margin-top: 40px;">
+        <a class="return-button" href="index.html">Voltar para página inicial</a>
+      </div>
     </div>
-    <h1 style="font-size: 32px; margin: 0;">Biblioteca da Imaginação 🧸</h1>
-    <form class="form" action="#" method="POST" onsubmit="return validateForm()">
-      <div class="form-group">
-        <input type="email" name="email" id="email" placeholder="E-mail" required>
-      </div>
-      <div class="button-container">
-        <button type="submit" onclick="showMessage()">Redefinir senha</button>
-        <button class="return-button" onclick="redirectToLoginPage()">Voltar para página inicial</button>
-      </div>
-    </form>
   </div>
-
-  <script>
-    function validateForm() {
-      var emailInput = document.getElementById('email');
-      if (emailInput.value === '') {
-        alert('Por favor, preencha o campo de e-mail.');
-        return false;
-      }
-      return true;
-    }
-
-    function showMessage() {
-      var emailInput = document.getElementById('email');
-      if (emailInput.value === '') {
-        alert('Por favor, preencha o campo de e-mail.');
-        return;
-      }
-      alert('O link para redefinição da senha foi enviado para o e-mail informado.');
-      redirectToLoginPage();
-    }
-
-    function redirectToLoginPage() {
-      window.location.href = 'index.html';
-    }
-  </script>
 </body>
 </html>
