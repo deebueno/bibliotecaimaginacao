@@ -73,6 +73,7 @@
       color: #000; /* Cor do texto */
       text-decoration: none;
       cursor: pointer;
+      font-size: 14px;
     }
 
     .return-button:hover {
@@ -102,7 +103,7 @@
       </div>
       <div class="button-container">
         <button type="submit" onclick="showMessage()">Redefinir senha</button>
-        <button class="return-button" onclick="redirectToLoginPage()">Voltar para página inicial</button>
+        <a class="return-button" href="index.html">Voltar para página inicial</a>
       </div>
     </form>
   </div>
@@ -122,9 +123,10 @@
       if (emailInput.value === '') {
         alert('Por favor, preencha o campo de e-mail.');
         return;
+      } else {
+        alert('O link para redefinição da senha foi enviado para o e-mail informado.');
+        redirectToLoginPage();
       }
-      alert('O link para redefinição da senha foi enviado para o e-mail informado.');
-      redirectToLoginPage();
     }
 
     function redirectToLoginPage() {
