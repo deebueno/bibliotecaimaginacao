@@ -97,7 +97,7 @@
       <img src="dados.png" alt="Logo" class="logo">
     </div>
     <h1 style="font-size: 32px; margin: 0;">Biblioteca da Imaginação 🧸</h1>
-    <form class="form" action="#" method="POST" onsubmit="return validateForm()">
+    <form class="form" onsubmit="return validateForm()">
       <div class="form-group">
         <input type="email" name="email" id="email" placeholder="E-mail" required>
       </div>
@@ -125,12 +125,7 @@
         return;
       } else {
         alert('O link para redefinição da senha foi enviado para o e-mail informado.');
-        redirectToLoginPage();
       }
-    }
-
-    function redirectToLoginPage() {
-      window.location.href = 'index.html';
     }
   </script>
 </body>
