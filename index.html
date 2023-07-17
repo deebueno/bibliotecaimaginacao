@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat+Alternates:wght@200&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #b2d1ee;
+      color: #000;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Indie Flower', cursive;
+      font-size: 32px;
+      text-align: center; /* Centralizar o texto */
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 150px;
+    }
+
+    .button-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    button {
+      background-color: #000;
+      color: #fff;
+      font-size: 16px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      width: 150px;
+    }
+
+    .forgot-password {
+      background-color: #fff;
+      color: #000;
+      font-size: 16px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .transition-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #b2d1ee;
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+      z-index: 9999;
+    }
+
+    .transition-container.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .logo {
+      width: 200px;
+      height: 200px;
+      animation: spin 2s infinite linear;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="transition-container">
+    <img src="/Users/u007555/Documents/Chatgpt/Site Bard/dados.png" alt="Logo" class="logo">
+  </div>
+
+  <div class="content-container">
+    <div class="logo-container">
+      <img src="dados.png" alt="Logo" style="width: 150px;">
+    </div>
+    <h1>Biblioteca da Imaginação 🧸</h1>
+    <form action="books.html">
+      <div class="form-container">
+        <input type="text" placeholder="E-mail" value="joaozinho@gmail.com">
+        <input type="password" placeholder="Senha" value="12345678">
+        <div class="button-container">
+          <button type="submit">Entrar</button>
+          <a href="redefinirsenha.html" class="forgot-password">Esqueci minha senha</a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var transitionContainer = document.querySelector(".transition-container");
+      var contentContainer = document.querySelector(".content-container");
+
+      setTimeout(function() {
+        transitionContainer.classList.add("hide");
+        contentContainer.style.visibility = "visible";
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

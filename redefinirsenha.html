@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redefinição de Senha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat+Alternates:wght@200&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #b2d1ee;
+      color: #000;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 28px;
+      font-family: 'Indie Flower', cursive;
+    }
+
+    .form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .form input[type="email"] {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #fff;
+      width: 150px;
+    }
+
+    .form .button-container {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .form .button-container button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px; /* Formato arredondado */
+      background-color: #000; /* Cor preta */
+      color: #fff; /* Cor do texto */
+      cursor: pointer;
+    }
+
+    .return-button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px; /* Formato arredondado */
+      background-color: #fff; /* Cor branca */
+      color: #000; /* Cor do texto */
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .return-button:hover {
+      background-color: #ddd;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 150px;
+      height: 150px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-container">
+      <img src="/Users/u007555/Documents/Chatgpt/Site Bard/dados.png" alt="Logo" class="logo">
+    </div>
+    <h1 style="font-size: 32px; margin: 0;">Biblioteca da Imaginação 🧸</h1>
+    <form class="form" action="#" method="POST" onsubmit="return validateForm()">
+      <div class="form-group">
+        <input type="email" name="email" id="email" placeholder="E-mail" required>
+      </div>
+      <div class="button-container">
+        <button type="submit" onclick="showMessage()">Redefinir senha</button>
+        <button class="return-button" onclick="redirectToLoginPage()">Voltar para página inicial</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var emailInput = document.getElementById('email');
+      if (emailInput.value === '') {
+        alert('Por favor, preencha o campo de e-mail.');
+        return false;
+      }
+      return true;
+    }
+
+    function showMessage() {
+      var emailInput = document.getElementById('email');
+      if (emailInput.value === '') {
+        alert('Por favor, preencha o campo de e-mail.');
+        return;
+      }
+      alert('O link para redefinição da senha foi enviado para o e-mail informado.');
+      redirectToLoginPage();
+    }
+
+    function redirectToLoginPage() {
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

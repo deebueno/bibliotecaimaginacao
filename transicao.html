@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transição de Página</title>
+  <style>
+    body {
+      background-color: #b2d1ee;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .transition-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .transition-container.show {
+      opacity: 1;
+    }
+
+    .logo {
+      width: 200px;
+      height: 200px;
+      animation: spin 2s infinite linear;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="transition-container">
+    <img src="dados.png" alt="Logo" class="logo">
+  </div>
+
+  <script>
+    setTimeout(function() {
+      document.querySelector('.transition-container').classList.add('show');
+      setTimeout(function() {
+        window.location.href = "index.html";
+      }, 1000);
+    }, 2000);
+  </script>
+</body>
+</html>
