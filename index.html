@@ -37,30 +37,31 @@
 
     .form-container {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       gap: 10px;
-      flex-wrap: wrap; /* Permite que os elementos fiquem em várias linhas */
+      max-width: 300px;
+      margin: 0 auto;
     }
 
     input[type="text"],
     input[type="password"] {
-      width: 100%; /* Ocupa a largura disponível */
-      max-width: 250px; /* Define uma largura máxima */
+      width: 100%;
+      padding: 10px;
     }
 
     .button-container {
       display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 10px;
-      flex-wrap: wrap; /* Permite que os elementos fiquem em várias linhas */
+      width: 100%;
     }
 
     button,
     .forgot-password {
-      flex-grow: 1; /* Faz com que os elementos cresçam igualmente */
-      white-space: nowrap;
-      max-width: 200px; /* Define uma largura máxima */
+      width: 100%;
+      padding: 10px;
     }
 
     .transition-container {
@@ -97,19 +98,16 @@
     /* Estilos adicionais para tornar o site responsivo */
     @media only screen and (max-width: 600px) {
       h1 {
-        font-size: 24px; /* Reduz o tamanho da fonte em dispositivos menores */
+        font-size: 24px;
       }
 
       .form-container {
-        flex-direction: column; /* Coloca os elementos em uma coluna em dispositivos menores */
-        gap: 20px;
+        max-width: 80%;
       }
 
-      input[type="text"],
-      input[type="password"],
       button,
       .forgot-password {
-        max-width: none; /* Remove a largura máxima definida anteriormente */
+        width: auto;
       }
     }
   </style>
